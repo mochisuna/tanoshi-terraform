@@ -14,7 +14,15 @@ module分割したほうがいい。
 
 
 # USAGE
+最初にS3 bucketとDynamoDBを作成します。
 ```
-$ terraform init
-$ terraform apply -var 'aws_access_key=<YOUR_KEY>' -var 'aws_secret_key=<YOUR_SECRET>'
+$ cd ./modules/tfstate/
+$ AWS_PROFILE=<profile> terraform apply
+```
+これがないとエラーになるので注意
+
+その後、モジュールの生成をします。
+```
+$ AWS_PROFILE=<profile> terraform init
+$ AWS_PROFILE=<profile> terraform apply -var 'aws_access_key=<YOUR_KEY>' -var 'aws_secret_key=<YOUR_SECRET>'
 ```
