@@ -16,7 +16,7 @@ module分割したほうがいい。
 # USAGE
 最初にS3 bucketとDynamoDBを作成します。
 ```
-$ cd ./modules/tfstate/
+$ cd ./modules/aws/tfstate/
 $ AWS_PROFILE=<profile> terraform apply
 ```
 これがないとエラーになるので注意

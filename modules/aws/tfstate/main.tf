@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "tfstate_bucket" {
-  bucket = "tanoshi-tf"
-  acl    = "private"
+  bucket = "tanoshi-tf-state"
 
   versioning {
     enabled = true
