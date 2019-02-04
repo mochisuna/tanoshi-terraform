@@ -63,3 +63,10 @@ module "elasticache" {
   region      = "${var.region}"
   elasticache = "${var.elasticache}"
 }
+
+module "static_page" {
+  source           = "../../modules/aws/static_page"
+  acm              = "${module.acm.outputs}"
+  static_page      = "${var.static_page}"
+  main_domain_name = "${var.main_domain_name}"
+}

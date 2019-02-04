@@ -167,3 +167,37 @@ variable "elasticache" {
     dev.parameter_group_name = "default.redis5.0"
   }
 }
+
+variable "static_page" {
+  type = "map"
+
+  default = {
+    default.bucket_name = "default-tanoshi-tf"
+    stg.bucket_name     = "stg-tanoshi-tf"
+    dev.bucket_name     = "dev-tanoshi-tf"
+
+    default.site_domain_name = ""
+    stg.site_domain_name     = ""
+    dev.site_domain_name     = ""
+
+    default.price_class = "PriceClass_200"
+    stg.price_class     = "PriceClass_200"
+    dev.price_class     = "PriceClass_200"
+
+    default.function_name = "edge_function"
+    stg.function_name     = "stg.edge_function"
+    dev.function_name     = "dev.edge_function"
+
+    default.runtime = "nodejs8.10"
+    stg.runtime     = "nodejs8.10"
+    dev.runtime     = "nodejs8.10"
+
+    default.minimum_protocol_version = "TLSv1.2_2018"
+    stg.minimum_protocol_version     = "TLSv1.2_2018"
+    dev.minimum_protocol_version     = "TLSv1.2_2018"
+
+    default.ssl_support_method = "sni-only"
+    stg.ssl_support_method     = "sni-only"
+    dev.ssl_support_method     = "sni-only"
+  }
+}
