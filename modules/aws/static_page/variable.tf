@@ -8,6 +8,10 @@ variable "main_domain_name" {
   default = ""
 }
 
+variable "app" {
+  type = "map"
+}
+
 variable "static_page" {
   type = "map"
 

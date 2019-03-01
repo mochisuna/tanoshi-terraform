@@ -9,10 +9,10 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu_utilization" {
   threshold           = "70"
 
   dimensions {
-    AutoScalingGroupName = "${lookup(var.app, "scale_out_policy_name")}"
+    AutoScalingGroupName = "${aws_autoscaling_policy.scale_out_cpu_policy.name}}"
   }
 
-  alarm_actions = ["${lookup(var.app, "scale_out_policy_arn")}"]
+  alarm_actions = ["${aws_autoscaling_policy.scale_out_cpu_policy.arn}"]
 }
 
 resource "aws_cloudwatch_metric_alarm" "low_cpu_utilization" {
@@ -26,8 +26,8 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_utilization" {
   threshold           = "20"
 
   dimensions {
-    AutoScalingGroupName = "${lookup(var.app, "scale_in_policy_name")}"
+    AutoScalingGroupName = "${aws_autoscaling_policy.scale_in_cpu_policy.name}"
   }
 
-  alarm_actions = ["${lookup(var.app, "scale_in_policy_arn")}"]
+  alarm_actions = ["${aws_autoscaling_policy.scale_in_cpu_policy.arn}"]
 }

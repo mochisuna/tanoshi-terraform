@@ -39,11 +39,6 @@ module "app" {
   key_pair = "${module.key_pair.outputs}"
 }
 
-module "cw" {
-  source = "../../modules/aws/cw"
-  app    = "${module.app.outputs}"
-}
-
 module "rds" {
   source = "../../modules/aws/backend/rds"
   vpc    = "${module.vpc.outputs}"
@@ -69,4 +64,5 @@ module "static_page" {
   acm              = "${module.acm.outputs}"
   static_page      = "${var.static_page}"
   main_domain_name = "${var.main_domain_name}"
+  app              = "${module.app.outputs}"
 }
